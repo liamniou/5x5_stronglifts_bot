@@ -1,0 +1,10 @@
+version: '3'
+services:
+  stronglifts_bot:
+    container_name: stronglifts_bot
+    restart: unless-stopped
+    build: .
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - MONGO_CONNECTION_STRING=${MONGO_CONNECTION_STRING}
+      - ALLOWED_CHAT_ID=${ALLOWED_CHAT_ID}
