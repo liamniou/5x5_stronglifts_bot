@@ -94,7 +94,11 @@ def get_today_session(last_week_data):
     else:
         exercise_names = ["Squat 5x5", "Overhead Press 5x5", "Deadlift 1x5"]
 
-    text = f"Today's session is {last_week_data.type}\n1. {exercise_names[0]}: {last_week_data.ex1 + last_week_data.ex1_addition}\n2. {exercise_names[1]}: {last_week_data.ex2 + last_week_data.ex1_addition}\n3. {exercise_names[2]}: {last_week_data.ex3 + last_week_data.ex1_addition}"
+    value_1 = last_week_data.ex1 + last_week_data.ex1_addition
+    value_2 = last_week_data.ex2 + last_week_data.ex2_addition
+    value_3 = last_week_data.ex3 + last_week_data.ex3_addition
+
+    text = f"Today's session is {last_week_data.type}\n1. {exercise_names[0]}: {value_1}\n2. {exercise_names[1]}: {value_2}\n3. {exercise_names[2]}: {value_3}\n`{value_1} {value_2} {value_3}`"
 
     return text
 
@@ -164,7 +168,7 @@ def show_agenda(message):
     if not data:
         return
     agenda_text = get_today_session(data)
-    bot.reply_to(message, agenda_text)
+    bot.reply_to(message, agenda_text, parse_mode="Markdown")
 
 
 user_state = {}

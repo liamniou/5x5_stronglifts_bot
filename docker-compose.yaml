@@ -1,4 +1,3 @@
-version: '3'
 services:
   stronglifts_bot:
     container_name: stronglifts_bot
